@@ -120,9 +120,9 @@ hide_streamlit_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
-            .viewerBadge_link__qRIco {
-                    display: none !important;
-                }
+                        div#root a {
+                display: none !important;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
