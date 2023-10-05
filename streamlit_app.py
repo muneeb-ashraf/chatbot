@@ -119,7 +119,7 @@ hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            .viewerBadge_container__r5tak {visibility:hidden;}
+            .viewerBadge_link__qRIco {visibility:hidden;}
             header {visibility: hidden;}
             </style>
             """
