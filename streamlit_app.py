@@ -11,7 +11,7 @@ openapi_key = st.secrets["OPENAI_API_KEY"]
 
 # Set streamlit page configuration
 st.set_page_config(page_title="AVG Digital Chatbot")
-st.title("Awesome")
+st.title("AVG Digital Chatbot")
 
 # Initialize session state variables
 if 'generated' not in st.session_state:
@@ -115,3 +115,10 @@ if st.session_state['generated']:
 
 
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
