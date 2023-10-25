@@ -33,9 +33,10 @@ def initialize_session_state():
         llm = palm.generate_text(
                 model=model,
                 temperature=0,
-                prompt=prompt,
+                prompt=history,
                 max_output_tokens=8000,
             )
+     
 
      
           
