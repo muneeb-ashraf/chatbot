@@ -4,7 +4,7 @@ import streamlit as st
 
 #from langchain import OpenAI
 from langchain.llms import GooglePalm
-from langchain.callbacks import get_openai_callback
+#from langchain.callbacks import get_openai_callback
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationSummaryMemory
 import streamlit.components.v1 as components
@@ -46,7 +46,7 @@ def initialize_session_state():
             memory=ConversationSummaryMemory(llm=llm),
         )
 
-def on_click_callback():
+""" def on_click_callback():
     with get_openai_callback() as cb:
         human_prompt = st.session_state.human_prompt
         llm_response = st.session_state.conversation.run(
@@ -59,6 +59,7 @@ def on_click_callback():
             Message("ai", llm_response)
         )
         st.session_state.token_count += cb.total_tokens
+"""
 
 load_css()
 initialize_session_state()
@@ -74,7 +75,7 @@ with chat_placeholder:
         div = f"""
 <div class="chat-row 
     {'' if chat.origin == 'ai' else 'row-reverse'}">
-    <img class="chat-icon" src="app/static/{
+    <img class="chat-icon" src="static/{
         'ai_icon.png' if chat.origin == 'ai' 
                       else 'user_icon.png'}"
          width=32 height=32>
