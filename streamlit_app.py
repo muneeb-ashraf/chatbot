@@ -3,6 +3,7 @@ from typing import Literal
 import streamlit as st
 
 from langchain import OpenAI
+from langchain.llms import GooglePalm
 from langchain.callbacks import get_openai_callback
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationSummaryMemory
@@ -30,7 +31,7 @@ def initialize_session_state():
     if "token_count" not in st.session_state:
         st.session_state.token_count = 0
     if "conversation" not in st.session_state:
-        llm = palm.generate_text(
+        llm = GooglePalm(
                 model=model,
                 temperature=0,
                 max_output_tokens=8000,
