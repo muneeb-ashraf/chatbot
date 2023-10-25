@@ -74,7 +74,7 @@ with chat_placeholder:
         div = f"""
 <div class="chat-row 
     {'' if chat.origin == 'ai' else 'row-reverse'}">
-    <img class="chat-icon" src="app/static/{
+    <img class="chat-icon" src="CHATBOT/static/{
         'ai_icon.png' if chat.origin == 'ai' 
                       else 'user_icon.png'}"
          width=32 height=32>
