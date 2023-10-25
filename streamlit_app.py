@@ -9,7 +9,7 @@ from langchain.chains.conversation.memory import ConversationSummaryMemory
 import streamlit.components.v1 as components
 import pprint
 import google.generativeai as palm
-palm.configure(api_key='PALM_API_KEY')
+palm.configure(api_key=st.secrets["PALM_API_KEY"])
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
  
@@ -32,7 +32,6 @@ def initialize_session_state():
     if "conversation" not in st.session_state:
         llm = palm.generate_text(
                 model=model,
-                palm_api_key=st.secrets["PALM_API_KEY"],
                 temperature=0,
                 # The maximum length of the response
                 max_output_tokens=800,
