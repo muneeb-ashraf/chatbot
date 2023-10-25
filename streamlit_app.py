@@ -34,6 +34,7 @@ def initialize_session_state():
         llm = GooglePalm(
                 model=model,
                 temperature=0,
+                palm_api_key=st.secrets["PALM_API_KEY"],
                 max_output_tokens=8000,
             )
      
