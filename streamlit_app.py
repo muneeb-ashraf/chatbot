@@ -10,6 +10,8 @@ import streamlit.components.v1 as components
 import pprint
 import google.generativeai as palm
 palm.configure(api_key='PALM_API_KEY')
+models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
+model = models[0].name
  
 @dataclass
 class Message:
