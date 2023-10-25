@@ -37,29 +37,13 @@ def initialize_session_state():
                 google_api_key=st.secrets["PALM_API_KEY"],
                 max_output_tokens=8000,
             )
-     
-
-     
           
         st.session_state.conversation = ConversationChain(
             llm=llm,
             memory=ConversationSummaryMemory(llm=llm),
         )
 
-""" def on_click_callback():
-    with get_openai_callback() as cb:
-        human_prompt = st.session_state.human_prompt
-        llm_response = st.session_state.conversation.run(
-            human_prompt
-        )
-        st.session_state.history.append(
-            Message("human", human_prompt)
-        )
-        st.session_state.history.append(
-            Message("ai", llm_response)
-        )
-        st.session_state.token_count += cb.total_tokens
-"""
+
 
 load_css()
 initialize_session_state()
@@ -75,7 +59,7 @@ with chat_placeholder:
         div = f"""
 <div class="chat-row 
     {'' if chat.origin == 'ai' else 'row-reverse'}">
-    <img class="chat-icon" src="static/{
+    <img class="chat-icon" src="/static/{
         'ai_icon.png' if chat.origin == 'ai' 
                       else 'user_icon.png'}"
          width=32 height=32>
