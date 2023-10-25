@@ -32,11 +32,12 @@ def initialize_session_state():
     if "conversation" not in st.session_state:
         llm = palm.generate_text(
                 model=model,
-                prompt=prompt,
+                palm_api_key=st.secrets["PALM_API_KEY"],
                 temperature=0,
                 # The maximum length of the response
                 max_output_tokens=800,
             )
+          
         st.session_state.conversation = ConversationChain(
             llm=llm,
             memory=ConversationSummaryMemory(llm=llm),
