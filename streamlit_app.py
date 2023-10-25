@@ -33,9 +33,11 @@ def initialize_session_state():
         llm = palm.generate_text(
                 model=model,
                 temperature=0,
-                # The maximum length of the response
-                max_output_tokens=800,
+                prompt=prompt,
+                max_output_tokens=8000,
             )
+
+     
           
         st.session_state.conversation = ConversationChain(
             llm=llm,
@@ -59,7 +61,7 @@ def on_click_callback():
 load_css()
 initialize_session_state()
 
-st.title("Hello Custom CSS Chatbot 🤖")
+st.title("AVG Digital Chatbot")
 
 chat_placeholder = st.container()
 prompt_placeholder = st.form("chat-form")
