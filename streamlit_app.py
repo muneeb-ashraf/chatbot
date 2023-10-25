@@ -11,7 +11,7 @@ openapi_key = st.secrets["OPENAI_API_KEY"]
 
 # Set streamlit page configuration
 st.set_page_config(page_title="AVG Digital Chatbot")
-st.title("AVG Digital Chatbot")
+st.title("AVG Digital Personal Chatbot Assistant")
 
 # Initialize session state variables
 if 'generated' not in st.session_state:
