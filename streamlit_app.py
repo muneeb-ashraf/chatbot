@@ -7,6 +7,9 @@ from langchain.callbacks import get_openai_callback
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationSummaryMemory
 import streamlit.components.v1 as components
+import pprint
+import google.generativeai as palm
+palm.configure(api_key='PALM_API_KEY')
  
 @dataclass
 class Message:
@@ -25,11 +28,13 @@ def initialize_session_state():
     if "token_count" not in st.session_state:
         st.session_state.token_count = 0
     if "conversation" not in st.session_state:
-        llm = OpenAI(
-            temperature=0,
-            openai_api_key=st.secrets["OPENAI_API_KEY"],
-            model_name="text-davinci-003"
-        )
+        llm = palm.generate_text(
+                model=model,
+                prompt=prompt,
+                temperature=0,
+                # The maximum length of the response
+                max_output_tokens=800,
+            )
         st.session_state.conversation = ConversationChain(
             llm=llm,
             memory=ConversationSummaryMemory(llm=llm),
