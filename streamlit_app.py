@@ -7,7 +7,7 @@ from langchain.callbacks import get_openai_callback
 from langchain.chains import ConversationChain
 from langchain.chains.conversation.memory import ConversationSummaryMemory
 import streamlit.components.v1 as components
-
+ 
 @dataclass
 class Message:
     """Class for keeping track of a chat message."""
