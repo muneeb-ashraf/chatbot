@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Literal
 import streamlit as st
 
-from langchain import OpenAI
+#from langchain import OpenAI
 from langchain.llms import GooglePalm
 from langchain.callbacks import get_openai_callback
 from langchain.chains import ConversationChain
